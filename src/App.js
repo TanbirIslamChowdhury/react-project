@@ -64,7 +64,7 @@ function App() {
               <Dashboard /> 
            </Protected>
            } />
-          <Route path= {"/admin/user"} element={
+          <Route path= {"/admin/users"} element={
             <Protected  isSignedIn= {isSignedIn} >
               <Users /> 
            </Protected>

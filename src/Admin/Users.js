@@ -32,29 +32,37 @@ function Users() {
     setUsers(res.data);
   }
 
-
   const handleSubmit = async(e) => {
     e.preventDefault();
 
     let datas={
-      name:e.target.name.value,
-      contact_no:e.target.contact_no.value,
-      email:e.target.email.value,
-      password:e.target.password.value
-  }
-      datas ={...inputs, ...datas} // marge two object
+        name:e.target.name.value,
+        contact_no:e.target.contact_no.value,
+        email:e.target.email.value,
+        password:e.target.password.value
+    }
+    datas ={...inputs, ...datas} // marge two object
+   
+    const formData = new FormData();
+    for (const property in datas) {
+      formData.append(property, datas[property])
+    }
     
-      const formData = new FormData();
-      for (const property in datas) {
-        formData.append(property, datas[property])
-      }
-
     try{
       let url='';
       if(datas.id!=''){
-        url='users_update.php';
+        url=`users/update.php`;
       }else{
-        url='users_add.php';
+        url=`users/add.php`;
+      }
+     
+      let response= await axios.post(url,formData);
+     
+      if(response.data.error == 1){
+        alert(response.data.message)
+      }else{
+        getDatas();
+        handleClose()
       }
     } 
     catch(e){
@@ -77,6 +85,7 @@ function Users() {
     <Adminlayout>
       <div className='container'>
         <h1>User</h1>
+        
         <Button variant="primary" onClick={handleShow}>
           Add New
         </Button>

@@ -27,7 +27,7 @@ function Register() {
           formData.append(property, datas[property])
         }
         let response= await axios.post(url,formData);
-      if(response.data.error==0)
+      if(response.data.success=1)
         navigate('/login')
       else
         alert(response.data.message)
