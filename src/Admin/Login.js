@@ -11,7 +11,7 @@ function Login() {
       password:e.target.password.value
     };
     try{
-      let url='http://localhost/learner-api/login.php';
+      let url='http://localhost/plumberz-api/login.php';
       
       let response= await axios({
           method: 'post',

@@ -8,6 +8,7 @@ function Users() {
   const [users,setUsers]=useState([]);
   const [show, setShow] = useState(false);
   const [inputs, setInputs] = useState([]);
+  const [selectedfile, setSelectedFile] = useState([]);
 
   const handleClose = () => {
     setShow(false)
@@ -32,6 +33,10 @@ function Users() {
     setUsers(res.data);
   }
 
+  const handelFile = (e) => {
+    setSelectedFile(e.target.files)
+  }
+
   const handleSubmit = async(e) => {
     e.preventDefault();
 
@@ -41,13 +46,17 @@ function Users() {
         email:e.target.email.value,
         password:e.target.password.value
     }
+    
     datas ={...inputs, ...datas} // marge two object
    
     const formData = new FormData();
+    for (let i = 0; i < selectedfile.length; i++) {
+      formData.append('files[]', selectedfile[i])
+    }
     for (const property in datas) {
       formData.append(property, datas[property])
     }
-    
+
     try{
       let url='';
       if(datas.id!=''){
@@ -96,6 +105,7 @@ function Users() {
             <th>Name</th>
             <th>Contact</th>
             <th>Email</th>
+            <th>Image</th>
             <th>Action</th>
           </tr>
           </thead>
@@ -106,6 +116,7 @@ function Users() {
               <td>{d.name}</td>
               <td>{d.contact_no}</td>
               <td>{d.email}</td>
+              <td><img src={`${process.env.REACT_APP_API_URL}${d.image}`} width="100px"/></td>
               <td>
                   <Button variant="primary" onClick={()=>{showEdit(d)}}>Edit</Button>
                   <Button variant="danger" onClick={()=>{deleteUser(d.id)}}>Delete</Button>
@@ -135,8 +146,12 @@ function Users() {
                   <input type='text' defaultValue={inputs.contact_no} className='form-control' name="contact_no" id='contact_no'/>
               </div>
               <div className='form-group'>
+                  <label htmlFor='image'>Photo</label>
+                  <input type='file' onChange={handelFile} className='form-control' name='image' id='image'/>
+              </div>
+              <div className='form-group'>
                   <label htmlFor='password'>Password</label>
-                  <input type='text' defaultValue={inputs.password} className='form-control' name='password' id='password'/>
+                  <input type='text' className='form-control' name='password' id='password'/>
               </div>
 
           </Modal.Body>
