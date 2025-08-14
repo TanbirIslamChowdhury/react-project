@@ -22,6 +22,7 @@ import Dashboard from './Admin/Dashboard';
 import Users from './Admin/Users';
 import Useradd from './Admin/Useradd';
 import Protected from './Admin/protected';
+import Technicians from './Admin/Technicians';
 
 
 
@@ -69,6 +70,17 @@ function App() {
               <Users /> 
            </Protected>
            } />
+
+
+            <Route path= {"/admin/Technicians"} element={
+            <Protected  isSignedIn= {isSignedIn} >
+              <Technicians /> 
+           </Protected>
+           } />
+
+
+
+
           <Route path="/admin/add-user" element={<Useradd />} />
 
 

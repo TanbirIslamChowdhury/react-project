@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link,useLocation } from 'react-router'
 function Login() {
   const navigate=useNavigate();
 
@@ -65,6 +66,7 @@ function Login() {
                       <input type="password" autocomplete="new-password" id="password" name="password" className="form-control" />
                     </div>
                   </div>
+                  <Link className="btn btn-link" to={"/register"}>Register</Link>
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg">Login</button>
                   </div>

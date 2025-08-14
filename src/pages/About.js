@@ -1,8 +1,9 @@
 import React from "react";
+import Weblayout from "../layout/Weblayout"
 
 function About() {
   return (
-    <>
+    <Weblayout>
 
 <div className="container-fluid page-header mb-5 py-5">
         <div className="container">
@@ -196,7 +197,7 @@ function About() {
     </div>
 </div>
 
-    </>
+    </Weblayout>
   );
 }
 
