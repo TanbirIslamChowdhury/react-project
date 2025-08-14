@@ -1,8 +1,9 @@
 import React from "react";
+import Weblayout from "../layout/Weblayout"
 
 function Contact() {
   return (
-    <>
+    <Weblayout>
 
 <div className="container-fluid page-header mb-5 py-5">
         <div className="container">
@@ -72,7 +73,7 @@ function Contact() {
             </div>
         </div>
     </div>
-    </>
+    </Weblayout>
   );
 }
 export default Contact;

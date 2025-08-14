@@ -1,9 +1,10 @@
 import React from "react";
 import {Link,useLocation} from 'react-router';
+import Weblayout from "../layout/Weblayout"
 
 function Service() {
   return (
-    <>
+    <Weblayout>
 
 
 
@@ -236,7 +237,7 @@ function Service() {
         </div>
     </div>
     
-    </>
+    </Weblayout>
   );
 }
 export default Service;

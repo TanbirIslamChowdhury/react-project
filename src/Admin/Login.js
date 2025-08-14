@@ -66,10 +66,15 @@ function Login() {
                       <input type="password" autocomplete="new-password" id="password" name="password" className="form-control" />
                     </div>
                   </div>
-                  <Link className="btn btn-link" to={"/register"}>Register</Link>
+                  
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg">Login</button>
+                    
                   </div>
+                  <div className="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
+                  <Link className="btn btn-primary btn-lg" to={"/register"}>Register</Link>
+                    </div>
+                  
                 </form>
               </div>
               <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
