@@ -1,3 +1,7 @@
+
+import '../Admin/login.css';
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -36,61 +40,101 @@ function Login() {
     catch(e){
       console.log(e);
     }
+    
   }
 
  
   return (
-    <section style={{backgroundColor: "#eee"}}>
-  <div className="container h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col-lg-12 col-xl-11">
-        <div className="card text-black" style={{borderRadius: "25px"}}>
-          <div className="card-body p-md-5">
-            <div className="row justify-content-center">
-              <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
-
-                <form onSubmit={handleSubmit} className="mx-1 mx-md-4">
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                      <label className="form-label" htmlFor="email">Your Email</label>
-                      <input type="email" id="email" name="email" className="form-control" />
-                    </div>
-                  </div>
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                      <label className="form-label" htmlFor="password">Password</label>
-                      <input type="password" autocomplete="new-password" id="password" name="password" className="form-control" />
-                    </div>
-                  </div>
-                  
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg">Login</button>
-                    
-                  </div>
-                  <div className="d-flex justify-content-center mx-5 mb-3 mb-lg-4">
-                  <Link className="btn btn-primary btn-lg" to={"/register"}>Register</Link>
-                    </div>
-                  
-                </form>
-              </div>
-              <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  className="img-fluid" alt="Sample image"/>
-
-              </div>
+    <section className="vh-100">
+    <div className="container-fluid h-custom">
+      <div className="row d-flex justify-content-center align-items-center h-100">
+        <div className="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            className="img-fluid" alt="Sample image"/>
+        </div>
+        <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form onSubmit={handleSubmit}>
+            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-floating mx-1">
+                <i className="fab fa-facebook-f"></i>
+              </button>
+  
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-floating mx-1">
+                <i className="fab fa-twitter"></i>
+              </button>
+  
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-floating mx-1">
+                <i className="fab fa-linkedin-in"></i>
+              </button>
             </div>
-          </div>
+  
+            <div className="divider d-flex align-items-center my-4">
+              <p className="text-center fw-bold mx-3 mb-0">Or</p>
+            </div>
+  
+            {/* Email input */}
+            <div data-mdb-input-init className="form-outline mb-4">
+              <input type="email" id="email" name="email" className="form-control form-control-lg"
+                placeholder="Enter a valid email address" />
+              <label className="form-label" for="form3Example3">Email address</label>
+            </div>
+  
+            {/* Password input */}
+            <div data-mdb-input-init className="form-outline mb-3">
+              <input type="password" id="password" name="password" className="form-control form-control-lg"
+                placeholder="Enter password" />
+              <label className="form-label" for="form3Example4">Password</label>
+            </div>
+  
+            <div className="d-flex justify-content-between align-items-center">
+              {/* Checkbox */}
+              <div className="form-check mb-0">
+                <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label className="form-check-label" for="form2Example3">
+                  Remember me
+                </label>
+              </div>
+              <a href="#!" className="text-body">Forgot password?</a>
+            </div>
+  
+            <div className="text-center text-lg-start mt-4 pt-2">
+              <button  type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg"
+                style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Login</button>
+              <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link
+                  className="link-danger" to={"/register"}>Register</Link></p>
+            </div>
+  
+          </form>
         </div>
       </div>
     </div>
-  </div>
-</section>
-    
+    <div
+      className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      {/* Copyright */}
+      <div className="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+      </div>
+      {/* Copyright */}
+  
+      {/* Right */}
+      <div>
+        <a href="#!" className="text-white me-4">
+          <i className="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" className="text-white me-4">
+          <i className="fab fa-twitter"></i>
+        </a>
+        <a href="#!" className="text-white me-4">
+          <i className="fab fa-google"></i>
+        </a>
+        <a href="#!" className="text-white">
+          <i className="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      {/* Right */}
+    </div>
+  </section>    
   );
 }
 

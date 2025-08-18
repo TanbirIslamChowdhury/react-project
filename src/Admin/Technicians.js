@@ -106,7 +106,10 @@ function Technicians() {
             <th>Contact</th>
             <th>Email</th>
             <th>Image</th>
+           
+            
             <th>Action</th>
+            
           </tr>
           </thead>
           <tbody>
@@ -116,6 +119,7 @@ function Technicians() {
               <td>{d.name}</td>
               <td>{d.contact_no}</td>
               <td>{d.email}</td>
+             
               <td><img src={`${process.env.REACT_APP_API_URL}${d.image}`} width="100px"/></td>
               <td>
                   <Button variant="primary" onClick={()=>{showEdit(d)}}>Edit</Button>

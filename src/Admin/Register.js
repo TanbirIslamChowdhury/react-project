@@ -48,14 +48,14 @@ function Register() {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-primary" >Sign up</p>
 
                       <form onSubmit={handleSubmit} className="mx-1 mx-md-4">
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="name">Your Name</label>
+                            <label className="form-label text-primary" htmlFor="name ">Your Name</label>
                             <input type="text" name='name' id="name" className="form-control" />
                           </div>
                         </div>
@@ -63,14 +63,14 @@ function Register() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="contact_no">Contact Number</label>
+                            <label className="form-label text-primary" htmlFor="contact_no ">Contact Number</label>
                             <input type="contact_no" id="contact_no" name="contact_no" className="form-control" />
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="email">Your Email</label>
+                            <label className="form-label text-primary" htmlFor="email">Your Email</label>
                             <input type="email" id="email" name="email" className="form-control" />
                           </div>
                         </div>
@@ -78,7 +78,7 @@ function Register() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="password">Password</label>
+                            <label className="form-label text-primary" htmlFor="password">Password</label>
                             <input type="password" autocomplete="new-password" id="password" name="password" className="form-control" />
                           </div>
                         </div>
@@ -86,13 +86,13 @@ function Register() {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div data-mdb-input-init className="form-outline flex-fill mb-0">
-                            <label className="form-label" htmlFor="rpassword">Repeat your password</label>
+                            <label className="form-label text-primary" htmlFor="rpassword">Repeat your password</label>
                             <input type="password" autocomplete="new-password" id="rpassword" name="rpassword" className="form-control" />
                           </div>
                         </div>
 
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button  type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg">Register</button>
+                          <button  type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg" >Register</button>
                         </div>
 
                       </form>
