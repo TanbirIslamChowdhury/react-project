@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2025 at 09:24 AM
+-- Generation Time: Aug 19, 2025 at 09:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,12 +33,19 @@ CREATE TABLE `bookings` (
   `contact_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `service_name` varchar(255) NOT NULL,
+  `service_date` date NOT NULL,
   `special_request` text DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `remember_token` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `name`, `contact_no`, `email`, `service_name`, `service_date`, `special_request`, `status`, `remember_token`, `image`) VALUES
+(1, 'nasif', NULL, 'wdpfr59@gmail.com', '2', '2025-08-12', 'xvcbcvb', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -64,9 +71,19 @@ CREATE TABLE `technicians` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
-  `remember_token` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `designation` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `technicians`
+--
+
+INSERT INTO `technicians` (`id`, `name`, `contact_no`, `email`, `password`, `status`, `designation`, `image`, `remember_token`) VALUES
+(1, 'nasif', '1234', 'nasif@gmail.com', '', 1, 'operator', 'technicians_file/6465492621 (77).jpg', NULL),
+(3, 'nasifa', '123', 'nasifa@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, '4141', 'technicians_file/17329277841 (92).jpg', NULL),
+(4, 'rased', '123', 'rased@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 'plumber', 'technicians_file/11426727581 (92).jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,8 +107,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `contact_no`, `email`, `password`, `status`, `remember_token`, `image`) VALUES
-(1, 'tanbir', '123', 'tanbir123@gmail.com', '', 1, '84621755152332428247', NULL),
-(2, 'nasa', '123', 'nasa@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, NULL, NULL);
+(1, 'tanbir', '123', 'tanbir123@gmail.com', '', 1, '84621755152332428247', 'users_file/12650096861 (15).jpg'),
+(2, 'nasa', '123', 'nasa@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, NULL, 'users_file/11166049011 (33).jpg'),
+(3, 'tanbir', '123', 'tanbir123@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, '78011755573412532127', 'users_file/7977978791 (62).jpg'),
+(4, 'Tanvir', '123', 'tanvir@gmail.com', '7b52009b64fd0a2a49e6d8a939753077792b0554', 1, '17351755492231572069', 'users_file/9045526311 (33).jpg'),
+(5, 'hasan', '123', 'hasan@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, NULL, 'users_file/12276090671 (93).jpg'),
+(6, 'rased', '123', 'rased@g,ail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, NULL, 'users_file/8750104761 (7).jpg'),
+(7, 'imtiaz', '123', 'imtiaz@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, NULL, 'users_file/15326860341 (31).jpg');
 
 --
 -- Indexes for dumped tables
@@ -129,7 +151,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -141,13 +163,13 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `technicians`
 --
 ALTER TABLE `technicians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
