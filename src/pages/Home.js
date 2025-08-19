@@ -3,6 +3,8 @@ import Weblayout from "../layout/Weblayout";
 
 import axios from '../Admin/components/axios';
 
+
+
 function Home() {
 
     const [technicians,setTechnicians]=useState([]);
@@ -17,31 +19,33 @@ function Home() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      const handleSubmit = async(e) => {
+        e.preventDefault();
+       
+        let datas={
+          name:e.target.name.value,
+          email:e.target.email.value,
+          service_name:e.target.service_name.value,
+          service_date:e.target.service_date.value,
+          special_request:e.target.special_request.value
+        }
+       
+        try{
+          
+          let url='front-api/bookings.php';
+          
+          const formData = new FormData();
+            for (const property in datas) {
+              formData.append(property, datas[property])
+            }
+            let response= await axios.post(url,formData);
+         
+            alert(response.data.message)
+        } 
+        catch(e){
+          console.log(e);
+        }
+      }
 
       
 
@@ -296,31 +300,37 @@ function Home() {
                 <div class="col-lg-8">
                     <div class="bg-light text-center p-5">
                         <h1 class="mb-4">Book For A Service</h1>
-                        <form>
+                        <form  onSubmit={handleSubmit} >
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style={{height: '55px'}}/>
+                                    <input type="text" id='name' name='name' class="form-control border-0" placeholder="Your Name" style={{height: '55px'}}/>
                                 </div>
+
+
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style={{height: '55px'}}/>
+                                    <input type="email"  id='email' name='email' class="form-control border-0" placeholder="Your Email" style={{height: '55px'}}/>
                                 </div>
+
+
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style={{height: '55px'}}>
-                                        <option selected>Select A Service</option>
+                                    <select id='service_name' name='service_name' class="form-select border-0" style={{height: '55px'}}>
+                                        <option value="">Select A Service</option>
                                         <option value="1">Service 1</option>
                                         <option value="2">Service 2</option>
                                         <option value="3">Service 3</option>
                                     </select>
                                 </div>
+
+
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text"
+                                        <input type="date" id='service_date' name='service_date'
                                             class="form-control border-0 datetimepicker-input"
                                             placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style={{height: '55px'}}/>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Request"></textarea>
+                                    <textarea  id='special_request' name='special_request' class="form-control border-0" placeholder="Special Request"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
