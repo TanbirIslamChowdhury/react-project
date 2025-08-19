@@ -23,6 +23,7 @@ import Users from './Admin/Users';
 import Useradd from './Admin/Useradd';
 import Protected from './Admin/protected';
 import Technicians from './Admin/Technicians';
+import Bookings from './Admin/Bookings';
 
 
 
@@ -75,6 +76,14 @@ function App() {
             <Route path= {"/admin/Technicians"} element={
             <Protected  isSignedIn= {isSignedIn} >
               <Technicians /> 
+           </Protected>
+           } />
+
+
+
+          <Route path= {"/admin/Bookings"} element={
+            <Protected  isSignedIn= {isSignedIn} >
+              <Bookings /> 
            </Protected>
            } />
 

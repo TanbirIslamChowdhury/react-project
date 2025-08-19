@@ -15,6 +15,36 @@ function Home() {
          setTechnicians(feat.data);
       }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
   return (
     <Weblayout>
     <div className="App">
@@ -322,7 +352,7 @@ function Home() {
                             <div class="team-text">
                                 <div class="bg-light">
                                     <h5 class="fw-bold mb-0">{d.name}</h5>
-                                    <small>Designation</small>
+                                    <small>{d.designation}</small>
                                 </div>
                                 <div class="bg-primary">
                                     <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>

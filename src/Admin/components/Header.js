@@ -7,9 +7,13 @@ function Header(){
           <nav className="navbar navbar-expand-sm bg-info navbar-dark">
               <div className="container-fluid">
                 <ul className="navbar-nav">
+
+
                   <li className="nav-item">
                     <Link className="nav-link text-white" to={"/admin/dashboard"}>Dashboard</Link>
                   </li>
+
+
                   <li className="nav-item">
                     <Link className="nav-link text-white" to={"/admin/users"}>users</Link>
                   </li>
@@ -19,7 +23,10 @@ function Header(){
                   </li>
 
 
-                  
+                  <li className="nav-item">
+                    <Link className="nav-link text-white" to={"/admin/Bookings"}>Bookings</Link>
+                  </li>
+         
                 </ul>
               </div>
             </nav>

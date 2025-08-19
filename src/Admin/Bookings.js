@@ -4,7 +4,7 @@ import Adminlayout from '../layout/Adminlayout';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function Technicians() {
+function Bookings() {
   const [users,setUsers]=useState([]);
   const [show, setShow] = useState(false);
   const [inputs, setInputs] = useState([]);
@@ -17,10 +17,10 @@ function Technicians() {
     setInputs({
             id:'',
             name:'',
-            contact_no:'',
-            designation:'',
             email:'',
-            password:''
+            special_request:'',
+           
+            //password:''
         });
     setShow(true);
   }
@@ -30,7 +30,7 @@ function Technicians() {
   }, []);
 
   const getDatas = async (e) => {
-    let res = await axios.get(`technicians/list.php`)
+    let res = await axios.get(`bookings/list.php`)
     setUsers(res.data);
   }
 
@@ -43,11 +43,12 @@ function Technicians() {
 
     let datas={
         name:e.target.name.value,
-        contact_no:e.target.contact_no.value,
-        
-        email:e.target.email.value,
-        designation:e.target.designation.value,
-        password:e.target.password.value
+        name:e.target.email.value,
+        email:e.target.special_request.value,
+        //contact_no:e.target.contact_no.value,
+        service_name:e.target.service_name.value,
+        service_name:e.target.service_date.value
+        //password:e.target.password.value
     }
     
     datas ={...inputs, ...datas} // marge two object
@@ -63,9 +64,9 @@ function Technicians() {
     try{
       let url='';
       if(datas.id!=''){
-        url=`technicians/update.php`;
+        url=`bookings/update.php`;
       }else{
-        url=`technicians/add.php`;
+        url=`bookings/add.php`;
       }
      
       let response= await axios.post(url,formData);
@@ -88,7 +89,7 @@ function Technicians() {
   }
 
   const deleteUser = async(id) => {
-    let res = await axios.get(`technicians/delete.php?id=${id}`);
+    let res = await axios.get(`bookings/delete.php?id=${id}`);
     getDatas();
   }
 
@@ -96,26 +97,23 @@ function Technicians() {
   return (
     <Adminlayout>
       <div className='container'>
-        <h1>Technicians</h1>
+        <h1>Bookings</h1>
         
-        <Button variant="primary" onClick={handleShow}>
+        {/* <Button variant="primary" onClick={handleShow}>
           Add New
-        </Button>
+        </Button> */}
         <table className='mt-5 table table-bordered'>
           <thead>
           <tr>
             <th>#SL</th>
             <th>Name</th>
-            
+            {/* <th>Contact</th> */}
             <th>Email</th>
-            <th>Designation</th>
-            <th>Contact</th>
-            <th>Image</th>
-            
-           
-            
+            {/* <th>Image</th> */}
+            <th>Service Name</th>
+            <th>Service Date</th>
+            <th>Special Request</th>
             <th>Action</th>
-            
           </tr>
           </thead>
           <tbody>
@@ -123,11 +121,12 @@ function Technicians() {
             <tr key={key}>
               <td className="text-bold-500">{key+1}</td>
               <td>{d.name}</td>
+              {/* <td>{d.contact_no}</td> */}
               
               <td>{d.email}</td>
-              <td>{d.designation}</td>
-              <td>{d.contact_no}</td>
-             
+              <td>{d.service_name}</td>
+              
+              <td>{d.special_request}</td>
               <td><img src={`${process.env.REACT_APP_API_URL}${d.image}`} width="100px"/></td>
               <td>
                   <Button variant="primary" onClick={()=>{showEdit(d)}}>Edit</Button>
@@ -149,40 +148,21 @@ function Technicians() {
                   <label htmlFor='name'>Name</label>
                   <input type='text' defaultValue={inputs.name} className='form-control' name="name" id='name'/>
               </div>
-
-
-
               <div className='form-group'>
                   <label htmlFor='email'>Email</label>
                   <input type='text' defaultValue={inputs.email} className='form-control' name="email" id='email'/>
               </div>
-
-
-
               <div className='form-group'>
-                  <label htmlFor='designation'>Designation</label>
-                  <input type='text' defaultValue={inputs.designation} className='form-control' name="designation" id='designation'/>
+                  <label htmlFor='contact_no'>Service Name</label>
+                  <input type='text' defaultValue={inputs.service_name} className='form-control' name="service_name" id='service_name'/>
               </div>
-
-
-
-              <div className='form-group'>
-                  <label htmlFor='contact_no'>Contact</label>
-                  <input type='text' defaultValue={inputs.contact_no} className='form-control' name="contact_no" id='contact_no'/>
-              </div>
-
-
-
-              <div className='form-group'>
+              {/* <div className='form-group'>
                   <label htmlFor='image'>Photo</label>
                   <input type='file' onChange={handelFile} className='form-control' name='image' id='image'/>
-              </div>
-
-
-
+              </div> */}
               <div className='form-group'>
-                  <label htmlFor='password'>Password</label>
-                  <input type='text' className='form-control' name='password' id='password'/>
+                  <label htmlFor='password'>Service Date</label>
+                  <input type='text' className='form-control' name='service_date' id='service_date'/>
               </div>
 
           </Modal.Body>
@@ -201,4 +181,4 @@ function Technicians() {
 }
 
 
-export default Technicians;
+export default Bookings;
